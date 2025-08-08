@@ -62,12 +62,12 @@ def main():
 
 
 
-    #possible 
+    #gets the best sequence based on score
     for idx, (score, start, window) in enumerate(best_match_windows):
         mapping = build_mapping(window)
         decrypted = decrypt(window, mapping)
         print(f"\n--- Candidate Sequence #{idx+1} (Score: {score:.2f}, Start Index: {start}) ---")
-        print(decrypted[:300] + "...\n")
+        print(decrypted[:721] + "...\n")
 
         #testing possible mappings
         print(decrypted[:300]\
