@@ -44,7 +44,7 @@ def main():
 
 
     candidates.sort(reverse=True)
-    #the top 10 candidates
+    #the top 10 candidates score-wise
     best_match_windows = candidates[:10]
 
 
@@ -57,8 +57,8 @@ def main():
 
 
 
-    def decrypt(text, mapping):
-        return ''.join(mapping.get(c, c) if c != ' ' else ' ' for c in text)
+    def decrypt(candidate, mapping):
+        return ''.join(mapping.get(c, c) if c != ' ' else ' ' for c in candidate)
 
 
 
@@ -68,6 +68,8 @@ def main():
         decrypted = decrypt(window, mapping)
         print(f"\n--- Candidate Sequence #{idx+1} (Score: {score:.2f}, Start Index: {start}) ---")
         print(decrypted[:300] + "...\n")
+
+        #testing possible mappings
         print(decrypted[:300]\
                                 .replace('V', 'A')\
                                 .replace('D', 'M')\
